@@ -1,0 +1,70 @@
+import org.springframework.stereotype.Service;
+@Service
+public class AnalysisService{
+     public HashMap getData(){
+	 HashMap map=new HashMap()'
+	 List<String> word=new ArrayList();
+	 List<Integer> count =new AnalList();
+	 File file =new File("result.txt");
+	 BufferedReader reader =null;
+	 try{
+	 
+	     reader=new BufferedReader(new FileReader(file));
+		 String tempString=null;
+	 
+	 
+	 int line =1;
+	 while((tempString =reader.readeLine())!=null){
+	 String[] split=tempString.split("\t");
+	 word.add(split[0]);
+	 count.add(Integer.valueof(split[1]));
+	 line++;
+	 if(line>88){
+	 Collections.reverse(word);
+	 Collections.reverse(count);
+	 map.put("word",word);
+	 map.put("count",count);
+	 return map;
+	 
+	 }
+	 }
+	 reader.colse();
+	 
+	 
+	 }catch(IOException e){
+	      e.printStackTrace();
+		  
+	 
+	 
+	 }
+	 finally{
+	     if(reader!=null){
+		       try{
+			        reader.colse();
+			   
+			   
+			   }catch(IOException e){
+			   
+			   e.printStackTrace();
+			   }
+		 
+		 }
+	 
+	 }
+	 return null;
+	 
+
+	 
+	 
+	 
+	 }
+
+}
+
+
+
+
+
+
+
+
